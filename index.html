@@ -112,10 +112,11 @@
       cursor: pointer;
       box-shadow: 0 3px 6px rgba(15,23,42,0.15);
       transition: all 0.18s ease;
+      color: #000000; /* текст всегда чёрный */
     }
     .lang-btn--active {
       background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      color: #ffffff;
+      color: #000000; /* чёрный текст поверх градиента */
       border-color: transparent;
       box-shadow:
         0 4px 10px rgba(79,70,229,0.55),
@@ -141,6 +142,13 @@
       font-size: 12px;
       margin-bottom: 4px;
       color: #334155;
+    }
+
+    .field-hint {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      color: #6b7280;
     }
 
     input,
@@ -248,19 +256,20 @@
         </div>
 
         <div class="field">
+          <label for="main_character_photo" id="label_main_photo">Фото главного героя (опционально)</label>
+          <input id="main_character_photo" name="main_character_photo" type="file" accept="image/*" />
+          <small class="field-hint" id="hint_main_photo">Выберите фотографию или сделайте снимок.</small>
+        </div>
+
+        <div class="field">
           <label for="second_character_name" id="label_second_character_name">Имя второго героя (опционально)</label>
           <input id="second_character_name" name="second_character_name" placeholder="Можно оставить пустым" />
         </div>
 
         <div class="field">
-          <label for="educational_plot" id="label_educational_plot">Поучительный сюжет *</label>
-          <select id="educational_plot" name="educational_plot" required>
-            <option value="sharing">Делиться с другими</option>
-            <option value="helping_others">Помощь другим</option>
-            <option value="overcome_fear_dark">Не бояться темноты</option>
-            <option value="handle_jealousy">Ревность и внимание</option>
-            <option value="take_responsibility">Ответственность за свои вещи</option>
-          </select>
+          <label for="second_character_photo" id="label_second_photo">Фото второго героя (опционально)</label>
+          <input id="second_character_photo" name="second_character_photo" type="file" accept="image/*" />
+          <small class="field-hint" id="hint_second_photo">Выберите фотографию или сделайте снимок.</small>
         </div>
 
         <div class="field">
@@ -271,6 +280,30 @@
             <option value="mysterious">Загадочный</option>
             <option value="humorous">С юмором</option>
             <option value="lyrical">Лирический</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="educational_plot" id="label_educational_plot">Поучительный сюжет *</label>
+          <select id="educational_plot" name="educational_plot" required>
+            <option value="kindness_help">Доброта и помощь другим</option>
+            <option value="power_of_friendship">Сила дружбы</option>
+            <option value="honesty_trust">Честность и доверие</option>
+            <option value="accepting_differences">Принятие различий</option>
+            <option value="admitting_mistakes">Умение признавать ошибки</option>
+            <option value="patience_perseverance">Терпение и настойчивость</option>
+            <option value="care_for_nature">Забота о природе</option>
+            <option value="safety_caution">Безопасность и осторожность</option>
+            <option value="respect_parents_adults">Уважение к родителям и взрослым</option>
+            <option value="sharing">Умение делиться</option>
+            <option value="independence_responsibility">Самостоятельность и ответственность</option>
+            <option value="emotions_expression">Эмоции и умение говорить о них</option>
+            <option value="anti_bullying">Противостояние буллингу</option>
+            <option value="value_of_work">Ценность труда</option>
+            <option value="tidiness_order">Аккуратность и порядок</option>
+            <option value="gadgets_moderation">Умеренность в гаджетах</option>
+            <option value="gratitude">Благодарность</option>
+            <option value="imagination_creativity">Воображение и творчество</option>
           </select>
         </div>
 
@@ -299,7 +332,7 @@
 
         <button type="submit" id="submitBtn">Создать сказку</button>
         <p class="note" id="note">
-          Фото можно отправить боту отдельным сообщением после формы — он свяжет их с этой сказкой.
+          Фотографии можно отправить боту отдельными сообщениями после формы — он свяжет их с этой сказкой. Зоны выбора фото выше опциональны.
         </p>
       </form>
     </div>
@@ -321,15 +354,32 @@
         description: 'Заполните параметры — бот сгенерирует персональную сказку и отправит её в чат в виде PDF-книги.',
         child_name_label: 'Имя главного героя *',
         child_name_placeholder: 'Например, Арина',
+        main_photo_label: 'Фото главного героя (опционально)',
+        main_photo_hint: 'Выберите фотографию или сделайте снимок.',
         second_character_label: 'Имя второго героя (опционально)',
         second_character_placeholder: 'Можно оставить пустым',
+        second_photo_label: 'Фото второго героя (опционально)',
+        second_photo_hint: 'Выберите фотографию или сделайте снимок.',
         educational_plot_label: 'Поучительный сюжет *',
         educational_plot_options: {
-          sharing: 'Делиться с другими',
-          helping_others: 'Помощь другим',
-          overcome_fear_dark: 'Не бояться темноты',
-          handle_jealousy: 'Ревность и внимание',
-          take_responsibility: 'Ответственность за свои вещи'
+          kindness_help: 'Доброта и помощь другим',
+          power_of_friendship: 'Сила дружбы',
+          honesty_trust: 'Честность и доверие',
+          accepting_differences: 'Принятие различий',
+          admitting_mistakes: 'Умение признавать ошибки',
+          patience_perseverance: 'Терпение и настойчивость',
+          care_for_nature: 'Забота о природе',
+          safety_caution: 'Безопасность и осторожность',
+          respect_parents_adults: 'Уважение к родителям и взрослым',
+          sharing: 'Умение делиться',
+          independence_responsibility: 'Самостоятельность и ответственность',
+          emotions_expression: 'Эмоции и умение говорить о них',
+          anti_bullying: 'Противостояние буллингу',
+          value_of_work: 'Ценность труда',
+          tidiness_order: 'Аккуратность и порядок',
+          gadgets_moderation: 'Умеренность в гаджетах',
+          gratitude: 'Благодарность',
+          imagination_creativity: 'Воображение и творчество'
         },
         narrative_style_label: 'Стиль повествования *',
         narrative_style_options: {
@@ -354,22 +404,39 @@
           preteen: '10–12 лет'
         },
         submit: 'Создать сказку',
-        note: 'Фото можно отправить боту отдельным сообщением после формы — он свяжет их с этой сказкой.'
+        note: 'Фотографии можно отправить боту отдельными сообщениями после формы — он свяжет их с этой сказкой. Зоны выбора фото выше опциональны.'
       },
       en: {
         title: 'Create a story',
         description: 'Fill in the fields — the bot will generate a personalised story and send it to the chat as a PDF book.',
         child_name_label: 'Main character’s name *',
         child_name_placeholder: 'For example, Arina',
+        main_photo_label: 'Main character photo (optional)',
+        main_photo_hint: 'Choose a picture or take a photo.',
         second_character_label: 'Second character’s name (optional)',
         second_character_placeholder: 'You may leave this empty',
+        second_photo_label: 'Second character photo (optional)',
+        second_photo_hint: 'Choose a picture or take a photo.',
         educational_plot_label: 'Educational plot *',
         educational_plot_options: {
+          kindness_help: 'Kindness and helping others',
+          power_of_friendship: 'Power of friendship',
+          honesty_trust: 'Honesty and trust',
+          accepting_differences: 'Accepting differences',
+          admitting_mistakes: 'Admitting mistakes',
+          patience_perseverance: 'Patience and perseverance',
+          care_for_nature: 'Caring for nature',
+          safety_caution: 'Safety and caution',
+          respect_parents_adults: 'Respect for parents and adults',
           sharing: 'Sharing with others',
-          helping_others: 'Helping others',
-          overcome_fear_dark: 'Overcoming fear of the dark',
-          handle_jealousy: 'Jealousy and attention',
-          take_responsibility: 'Taking care of your things'
+          independence_responsibility: 'Independence and responsibility',
+          emotions_expression: 'Emotions and talking about them',
+          anti_bullying: 'Standing up to bullying',
+          value_of_work: 'Value of work',
+          tidiness_order: 'Tidiness and order',
+          gadgets_moderation: 'Moderation with gadgets',
+          gratitude: 'Gratitude',
+          imagination_creativity: 'Imagination and creativity'
         },
         narrative_style_label: 'Narrative style *',
         narrative_style_options: {
@@ -394,7 +461,7 @@
           preteen: '10–12 years'
         },
         submit: 'Create story',
-        note: 'You can send photos to the bot as a separate message after the form — they will be linked to this story.'
+        note: 'You can send photos to the bot as separate messages after submitting the form — they will be linked to this story. The photo selection areas above are optional.'
       }
     };
 
@@ -409,7 +476,11 @@
       document.getElementById('description').textContent = t.description;
 
       document.getElementById('label_child_name').textContent = t.child_name_label;
+      document.getElementById('label_main_photo').textContent = t.main_photo_label;
+      document.getElementById('hint_main_photo').textContent = t.main_photo_hint;
       document.getElementById('label_second_character_name').textContent = t.second_character_label;
+      document.getElementById('hint_second_photo').textContent = t.second_photo_hint;
+      document.getElementById('label_second_photo').textContent = t.second_photo_label;
       document.getElementById('label_educational_plot').textContent = t.educational_plot_label;
       document.getElementById('label_narrative_style').textContent = t.narrative_style_label;
       document.getElementById('label_setting').textContent = t.setting_label;
@@ -486,7 +557,9 @@
         setting: form.setting.value.trim() || null,
         language: form.language.value,
         age_group: form.age_group.value,
-        ui_language: currentLang
+        ui_language: currentLang,
+        main_character_photo_name: form.main_character_photo.files[0]?.name || null,
+        second_character_photo_name: form.second_character_photo.files[0]?.name || null
       };
 
       try {
@@ -494,6 +567,7 @@
           tg.sendData(JSON.stringify(data));
           tg.close();
         } else {
+          // тестовый режим в браузере
           alert('Отправлены данные:\n' + JSON.stringify(data, null, 2));
           submitBtn.disabled = false;
         }
