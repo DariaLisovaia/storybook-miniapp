@@ -562,19 +562,21 @@
         second_character_photo_name: form.second_character_photo.files[0]?.name || null
       };
 
-      try {
-        if (tg) {
-          tg.sendData(JSON.stringify(data));
-          tg.close();
-        } else {
-          // тестовый режим в браузере
-          alert('Отправлены данные:\n' + JSON.stringify(data, null, 2));
-          submitBtn.disabled = false;
-        }
-      } catch (e) {
-        console.error(e);
-        submitBtn.disabled = false;
-      }
+      const tg = window.Telegram?.WebApp || null;
+const isTelegramWebApp = !!(tg && typeof tg.initData === 'string' && tg.initData.length > 0);
+
+try {
+  if (isTelegramWebApp) {
+    tg.sendData(JSON.stringify(data));
+    setTimeout(() => tg.close(), 250);
+  } else {
+    alert('Тестовый режим (не Telegram WebApp):\n' + JSON.stringify(data, null, 2));
+    submitBtn.disabled = false;
+  }
+} catch (e) {
+  console.error(e);
+  submitBtn.disabled = false;
+}
     });
   </script>
 </body>
