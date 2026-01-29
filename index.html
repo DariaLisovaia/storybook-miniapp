@@ -340,12 +340,10 @@
 
   <script>
     const tg = window.Telegram?.WebApp || null;
-    console.log('Telegram object: ', window.Telegram);
-    console.log('WebApp object: ', tg);
-    console.log('initData: ', tg?.initData);
-    console.log('initDataUnsafe: ', tg?.initDataUnsafe);
+    const isTelegramWebApp = Boolean(tg && tg.initData);
+    const WEBHOOK_URL = 'https://oglob.app.n8n.cloud/webhook-test/telegram-puzirek';
     
-    if (tg) {
+    if (isTelegramWebApp) {
       tg.ready();
       tg.expand();
     }
@@ -470,7 +468,10 @@
       }
     };
 
-    let currentLang = 'ru';
+    // Получаем lang из URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const langFromUrl = urlParams.get('lang') || 'en';
+    let currentLang = langFromUrl;
 
     function applyTranslations(lang) {
       const t = translations[lang];
@@ -496,46 +497,29 @@
       form.second_character_name.placeholder = t.second_character_placeholder;
       form.setting.placeholder = t.setting_placeholder;
 
-      const educationalSelect = form.educational_plot;
-      for (const option of educationalSelect.options) {
-        const key = option.value;
-        if (t.educational_plot_options[key]) {
-          option.textContent = t.educational_plot_options[key];
+      // Обновляем select options
+      const updateSelectOptions = (select, optionsMap) => {
+        for (const option of select.options) {
+          const key = option.value;
+          if (optionsMap[key]) option.textContent = optionsMap[key];
         }
-      }
-
-      const narrativeSelect = form.narrative_style;
-      for (const option of narrativeSelect.options) {
-        const key = option.value;
-        if (t.narrative_style_options[key]) {
-          option.textContent = t.narrative_style_options[key];
-        }
-      }
-
-      const languageSelect = form.language;
-      for (const option of languageSelect.options) {
-        const key = option.value;
-        if (t.language_options[key]) {
-          option.textContent = t.language_options[key];
-        }
-      }
-
-      const ageSelect = form.age_group;
-      for (const option of ageSelect.options) {
-        const key = option.value;
-        if (t.age_group_options[key]) {
-          option.textContent = t.age_group_options[key];
-        }
-      }
+      };
+      
+      updateSelectOptions(form.educational_plot, t.educational_plot_options);
+      updateSelectOptions(form.narrative_style, t.narrative_style_options);
+      updateSelectOptions(form.language, t.language_options);
+      updateSelectOptions(form.age_group, t.age_group_options);
 
       submitBtn.textContent = t.submit;
       document.getElementById('note').textContent = t.note;
 
-      if (lang === 'ru' || lang === 'en') {
-        form.language.value = lang;
-      }
+      // Устанавливаем язык в форме
+      form.language.value = lang;
     }
 
+    // Применяем язык из URL при загрузке
+    applyTranslations(langFromUrl);
+    
     const langButtons = document.querySelectorAll('.lang-btn');
     langButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -548,44 +532,46 @@
       });
     });
 
-    applyTranslations('ru');
-
-    form.addEventListener('submit', function (event) {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
       submitBtn.disabled = true;
-      console.log('Form submit clicked');
-
-      const data = {
-        child_name: form.child_name.value.trim(),
-        second_character_name: form.second_character_name.value.trim() || null,
-        educational_plot: form.educational_plot.value,
-        narrative_style: form.narrative_style.value,
-        setting: form.setting.value.trim() || null,
-        language: form.language.value,
-        age_group: form.age_group.value,
-        ui_language: currentLang,
-        main_character_photo_name: form.main_character_photo.files[0]?.name || null,
-        second_character_photo_name: form.second_character_photo.files[0]?.name || null
-      };
-      console.log('Collected form data:', data);
-
-      const tg = window.Telegram?.WebApp || null;
-      const isTelegramWebApp = !!(tg && typeof tg.initData === 'string' && tg.initData.length > 0);
-      console.log('Is Telegram WebApp: ', isTelegramWebApp);
-      console.log('WebApp object before sendData: ', tg);
-
-      try {
-        if (isTelegramWebApp) {
-          console.log('Sending data to Telegram WebApp');
-          tg.sendData(JSON.stringify(data));
-          console.log('Data sent, will close WebApp in 250ms');
-          setTimeout(() => tg.close(), 250);
-        } else {
-          alert('Тестовый режим (не Telegram WebApp):\n' + JSON.stringify(data, null, 2));
-          submitBtn.disabled = false;
+      
+      if (!isTelegramWebApp) {
+        alert('Открыто не внутри Telegram'); 
+        submitBtn.disabled = false;
+        return;
+      }
+      
+      const payload = {
+        type: 'storybook_form',
+        lang: currentLang,
+        form_data: {
+          child_name: form.child_name.value.trim(),
+          second_character_name: form.second_character_name.value.trim() || null,
+          educational_plot: form.educational_plot.value, 
+          narrative_style: form.narrative_style.value,
+          setting: form.setting.value.trim() || null,
+          language: form.language.value,
+          age_group: form.age_group.value,
+          ui_language: currentLang,
+          main_character_photo_name: form.main_character_photo.files[0]?.name || null,
+          second_character_photo_name: form.second_character_photo.files[0]?.name || null
+        },
+        telegram: {
+          initData: tg.initData, // строка для проверки подписи 
+          user: tg.initDataUnsafe?.user || null
         }
-      } catch (e) {
-        console.error(e);
+      };
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        
+        tg.close();
+      } catch (err) {
+        console.error(err);
         submitBtn.disabled = false;
       }
     });
