@@ -10,9 +10,7 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: #0f172a;
     }
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       padding: 16px;
@@ -22,7 +20,6 @@
       overflow-x: hidden;
     }
 
-    /* декоративные пузыри на фоне (не анимированные) */
     .decor-bubbles {
       position: fixed;
       inset: 0;
@@ -43,66 +40,30 @@
     .decor-bubble--4 { width: 160px; height: 160px; bottom: -30px; right: -10px; opacity: 0.4; }
     .decor-bubble--5 { width: 70px;  height: 70px;  top: 50%; left: 55%; opacity: 0.45; }
 
-    .container {
-      max-width: 480px;
-      margin: 0 auto;
-    }
+    .container { max-width: 480px; margin: 0 auto; }
 
     .bubble-card {
       background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.95), rgba(255,255,255,0.78));
       border-radius: 32px;
       padding: 18px 16px 20px;
-      box-shadow:
-        0 18px 40px rgba(15,23,42,0.35),
-        0 0 0 1px rgba(255,255,255,0.7);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.35), 0 0 0 1px rgba(255,255,255,0.7);
       backdrop-filter: blur(12px);
     }
 
-    .hero {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 8px;
-    }
+    .hero { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
     .hero-illustration {
-      width: 84px;
-      height: 84px;
-      border-radius: 50%;
+      width: 84px; height: 84px; border-radius: 50%;
       background: radial-gradient(circle at 30% 20%, #ffe0f2 0, #ffb6dd 45%, #ff9fd6 80%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow:
-        0 8px 18px rgba(244,114,182,0.5),
-        0 0 0 3px rgba(255,255,255,0.8);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 18px rgba(244,114,182,0.5), 0 0 0 3px rgba(255,255,255,0.8);
       overflow: hidden;
     }
-    .hero-emoji {
-      font-size: 40px;
-      line-height: 1;
-      transform: translateY(2px);
-    }
+    .hero-emoji { font-size: 40px; line-height: 1; transform: translateY(2px); }
+    .hero-text { flex: 1; min-width: 0; }
+    h1 { font-size: 20px; margin: 0 0 4px; }
+    p.description { font-size: 13px; margin: 0; color: #4b5563; }
 
-    .hero-text {
-      flex: 1;
-      min-width: 0;
-    }
-    h1 {
-      font-size: 20px;
-      margin: 0 0 4px;
-    }
-    p.description {
-      font-size: 13px;
-      margin: 0;
-      color: #4b5563;
-    }
-
-    .lang-switch {
-      display: flex;
-      justify-content: flex-end;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
+    .lang-switch { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px; }
     .lang-btn {
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.8);
@@ -112,48 +73,28 @@
       cursor: pointer;
       box-shadow: 0 3px 6px rgba(15,23,42,0.15);
       transition: all 0.18s ease;
-      color: #000000; /* текст всегда чёрный */
+      color: #000000;
     }
     .lang-btn--active {
       background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      color: #000000; /* чёрный текст поверх градиента */
+      color: #000000;
       border-color: transparent;
-      box-shadow:
-        0 4px 10px rgba(79,70,229,0.55),
-        0 0 0 1px rgba(255,255,255,0.8) inset;
+      box-shadow: 0 4px 10px rgba(79,70,229,0.55), 0 0 0 1px rgba(255,255,255,0.8) inset;
     }
 
-    form {
-      margin-top: 10px;
-    }
-
+    form { margin-top: 10px; }
     .field {
       margin-bottom: 12px;
       padding: 8px 10px 10px;
       border-radius: 18px;
       background: radial-gradient(circle at 15% 10%, rgba(255,255,255,0.98), rgba(255,255,255,0.78));
-      box-shadow:
-        0 6px 12px rgba(15,23,42,0.12),
-        0 0 0 1px rgba(255,255,255,0.85);
+      box-shadow: 0 6px 12px rgba(15,23,42,0.12), 0 0 0 1px rgba(255,255,255,0.85);
     }
+    label { display: block; font-size: 12px; margin-bottom: 4px; color: #334155; }
+    .field-hint { display: block; margin-top: 4px; font-size: 11px; color: #6b7280; }
+    .field-subtitle { display: block; margin: 6px 0 6px; font-size: 11px; color: #475569; }
 
-    label {
-      display: block;
-      font-size: 12px;
-      margin-bottom: 4px;
-      color: #334155;
-    }
-
-    .field-hint {
-      display: block;
-      margin-top: 4px;
-      font-size: 11px;
-      color: #6b7280;
-    }
-
-    input,
-    select,
-    textarea {
+    input, select, textarea {
       width: 100%;
       padding: 7px 12px;
       border-radius: 999px;
@@ -163,24 +104,50 @@
       background: rgba(255,255,255,0.9);
       box-shadow: 0 2px 4px rgba(15,23,42,0.05) inset;
     }
-    textarea {
-      border-radius: 18px;
-      resize: vertical;
-      min-height: 60px;
-    }
-    input::placeholder,
-    textarea::placeholder {
-      color: #9ca3af;
-    }
-    input:focus,
-    select:focus,
-    textarea:focus {
+    textarea { border-radius: 18px; resize: vertical; min-height: 60px; }
+    input::placeholder, textarea::placeholder { color: #9ca3af; }
+    input:focus, select:focus, textarea:focus {
       border-color: #6366f1;
-      box-shadow:
-        0 0 0 1px rgba(129,140,248,0.6),
-        0 0 0 4px rgba(129,140,248,0.26);
+      box-shadow: 0 0 0 1px rgba(129,140,248,0.6), 0 0 0 4px rgba(129,140,248,0.26);
       background: #ffffff;
     }
+
+    /* небольшие "чипы" для выбора режимов/пресетов */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .chip {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.85);
+      background: rgba(255,255,255,0.92);
+      padding: 6px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      color: #0f172a;
+      box-shadow: 0 3px 6px rgba(15,23,42,0.10);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+      text-align: left;
+    }
+    .chip:active { transform: translateY(1px); filter: brightness(0.99); }
+    .chip--active {
+      background: linear-gradient(135deg, rgba(99,102,241,0.95), rgba(139,92,246,0.95));
+      border-color: transparent;
+      color: #0b1020; /* остаётся читабельным на градиенте */
+      box-shadow: 0 6px 14px rgba(79,70,229,0.35), 0 0 0 1px rgba(255,255,255,0.9) inset;
+    }
+    .chip small { display: block; font-size: 10px; color: rgba(15,23,42,0.72); }
+    .chip--active small { color: rgba(15,23,42,0.82); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    @media (max-width: 390px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    .hidden { display: none !important; }
 
     button {
       width: 100%;
@@ -192,33 +159,22 @@
       cursor: pointer;
       background: radial-gradient(circle at 20% 0, #a5b4fc, #6366f1);
       color: #ffffff;
-      box-shadow:
-        0 10px 20px rgba(79,70,229,0.55),
-        0 0 0 1px rgba(255,255,255,0.9) inset;
+      box-shadow: 0 10px 20px rgba(79,70,229,0.55), 0 0 0 1px rgba(255,255,255,0.9) inset;
       margin-top: 4px;
       transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
     }
     button:active {
       transform: translateY(1px);
-      box-shadow:
-        0 6px 14px rgba(79,70,229,0.55),
-        0 0 0 1px rgba(255,255,255,0.9) inset;
+      box-shadow: 0 6px 14px rgba(79,70,229,0.55), 0 0 0 1px rgba(255,255,255,0.9) inset;
       filter: brightness(0.98);
     }
     button:disabled {
       opacity: 0.7;
       cursor: default;
-      box-shadow:
-        0 4px 8px rgba(148,163,184,0.5),
-        0 0 0 1px rgba(255,255,255,0.9) inset;
+      box-shadow: 0 4px 8px rgba(148,163,184,0.5), 0 0 0 1px rgba(255,255,255,0.9) inset;
     }
 
-    .note {
-      font-size: 11px;
-      color: #475569;
-      margin-top: 8px;
-      text-align: center;
-    }
+    .note { font-size: 11px; color: #475569; margin-top: 8px; text-align: center; }
   </style>
 </head>
 <body>
@@ -250,42 +206,477 @@
       </div>
 
       <form id="storyForm">
+        <!-- П.1 -->
         <div class="field">
-          <label for="child_name" id="label_child_name">Имя главного героя *</label>
-          <input id="child_name" name="child_name" required placeholder="Например, Арина" />
+          <label for="main_hero_name" id="label_main_hero_name">Имя главного героя *</label>
+          <input id="main_hero_name" name="main_hero_name" required placeholder="Например, Арина" />
         </div>
 
+        <!-- П.2: Режим внешности главного героя -->
         <div class="field">
-          <label for="main_character_photo" id="label_main_photo">Фото главного героя (опционально)</label>
-          <input id="main_character_photo" name="main_character_photo" type="file" accept="image/*" />
-          <small class="field-hint" id="hint_main_photo">Выберите фотографию или сделайте снимок.</small>
+          <label id="label_main_hero_appearance_mode">Внешность главного героя *</label>
+
+          <div class="chip-row" id="mainHeroModeChips">
+            <button type="button" class="chip chip--active" data-value="auto" id="chip_main_auto">
+              <span id="chip_main_auto_title">Предложить внешность</span>
+              <small id="chip_main_auto_desc">Автогенерация без параметров</small>
+            </button>
+
+            <button type="button" class="chip" data-value="select" id="chip_main_select">
+              <span id="chip_main_select_title">Выбрать внешность</span>
+              <small id="chip_main_select_desc">Параметры: кожа, глаза, волосы…</small>
+            </button>
+
+            <button type="button" class="chip" data-value="photo" id="chip_main_photo">
+              <span id="chip_main_photo_title">Загрузить фото</span>
+              <small id="chip_main_photo_desc">Фото отправите в чат после формы</small>
+            </button>
+          </div>
+
+          <input type="hidden" id="main_hero_appearance_mode" name="main_hero_appearance_mode" value="auto" />
+
+          <small class="field-hint" id="hint_main_hero_mode">
+            Если выбран режим «Загрузить фото», бот попросит прислать фото в чате после отправки формы.
+          </small>
+
+          <!-- Таблица 2: параметры внешности -->
+          <div id="mainHeroAppearanceBlock" class="hidden">
+            <span class="field-subtitle" id="subtitle_main_appearance">Параметры внешности (для узнаваемости)</span>
+
+            <div class="grid-2">
+              <div>
+                <label for="main_age_years" id="label_main_age_years">Возраст (цифрой)</label>
+                <input id="main_age_years" name="main_age_years" inputmode="numeric" placeholder="Например, 4" />
+              </div>
+              <div>
+                <label for="main_gender" id="label_main_gender">Пол</label>
+                <select id="main_gender" name="main_gender">
+                  <option value="unspecified" selected id="opt_gender_unspecified">Не указывать</option>
+                  <option value="girl" id="opt_gender_girl">Девочка</option>
+                  <option value="boy" id="opt_gender_boy">Мальчик</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div>
+                <label for="main_skin_tone" id="label_main_skin_tone">Тон кожи *</label>
+                <select id="main_skin_tone" name="main_skin_tone">
+                  <option value="" selected disabled id="opt_pick">Выберите…</option>
+                  <option value="very_light" id="opt_skin_very_light">Очень светлый</option>
+                  <option value="light" id="opt_skin_light">Светлый</option>
+                  <option value="medium" id="opt_skin_medium">Средний</option>
+                  <option value="tan" id="opt_skin_tan">Смуглый</option>
+                  <option value="dark" id="opt_skin_dark">Тёмный</option>
+                </select>
+              </div>
+              <div>
+                <label for="main_face_shape" id="label_main_face_shape">Форма лица</label>
+                <select id="main_face_shape" name="main_face_shape">
+                  <option value="unspecified" selected id="opt_face_unspecified">Не указывать</option>
+                  <option value="round" id="opt_face_round">Круглое</option>
+                  <option value="oval" id="opt_face_oval">Овальное</option>
+                  <option value="long" id="opt_face_long">Удлинённое</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="main_face_accent" id="label_main_face_accent">Акцент лица (опционально)</label>
+              <input id="main_face_accent" name="main_face_accent" maxlength="120" placeholder="Например, веснушки" />
+              <small class="field-hint" id="hint_main_face_accent">Короткая деталь, которую важно сохранить.</small>
+            </div>
+
+            <span class="field-subtitle" id="subtitle_main_eyes">Глаза</span>
+            <div class="grid-3">
+              <div>
+                <label for="main_eyes_color" id="label_main_eyes_color">Цвет *</label>
+                <select id="main_eyes_color" name="main_eyes_color">
+                  <option value="" selected disabled>Выберите…</option>
+                  <option value="brown" id="opt_eyes_brown">Карие</option>
+                  <option value="blue" id="opt_eyes_blue">Голубые</option>
+                  <option value="gray" id="opt_eyes_gray">Серые</option>
+                  <option value="green" id="opt_eyes_green">Зелёные</option>
+                  <option value="hazel" id="opt_eyes_hazel">Ореховые</option>
+                  <option value="unspecified" id="opt_eyes_unspecified">Не указывать</option>
+                </select>
+              </div>
+              <div>
+                <label for="main_eyes_shape" id="label_main_eyes_shape">Форма</label>
+                <select id="main_eyes_shape" name="main_eyes_shape">
+                  <option value="unspecified" selected id="opt_eyes_shape_unspecified">Не указывать</option>
+                  <option value="round" id="opt_eyes_shape_round">Круглые</option>
+                  <option value="almond" id="opt_eyes_shape_almond">Миндaлевидные</option>
+                </select>
+              </div>
+              <div>
+                <label for="main_eyes_size" id="label_main_eyes_size">Размер</label>
+                <select id="main_eyes_size" name="main_eyes_size">
+                  <option value="unspecified" selected id="opt_eyes_size_unspecified">Не указывать</option>
+                  <option value="small" id="opt_eyes_size_small">Небольшие</option>
+                  <option value="medium" id="opt_eyes_size_medium">Средние</option>
+                  <option value="large" id="opt_eyes_size_large">Крупные</option>
+                </select>
+              </div>
+            </div>
+
+            <span class="field-subtitle" id="subtitle_main_hair">Волосы</span>
+            <div class="grid-3">
+              <div>
+                <label for="main_hair_color" id="label_main_hair_color">Цвет *</label>
+                <select id="main_hair_color" name="main_hair_color">
+                  <option value="" selected disabled>Выберите…</option>
+                  <option value="blond" id="opt_hair_blond">Блонд</option>
+                  <option value="light_brown" id="opt_hair_light_brown">Русые</option>
+                  <option value="chestnut" id="opt_hair_chestnut">Каштановые</option>
+                  <option value="dark" id="opt_hair_dark">Тёмные</option>
+                  <option value="red" id="opt_hair_red">Рыжие</option>
+                  <option value="black" id="opt_hair_black">Чёрные</option>
+                  <option value="unspecified" id="opt_hair_unspecified">Не указывать</option>
+                </select>
+              </div>
+              <div>
+                <label for="main_hair_length" id="label_main_hair_length">Длина *</label>
+                <select id="main_hair_length" name="main_hair_length">
+                  <option value="" selected disabled>Выберите…</option>
+                  <option value="very_short" id="opt_hair_len_very_short">Очень короткие</option>
+                  <option value="short" id="opt_hair_len_short">Короткие</option>
+                  <option value="shoulder" id="opt_hair_len_shoulder">До плеч</option>
+                  <option value="long" id="opt_hair_len_long">Длинные</option>
+                  <option value="unspecified" id="opt_hair_len_unspecified">Не указывать</option>
+                </select>
+              </div>
+              <div>
+                <label for="main_hair_type" id="label_main_hair_type">Тип *</label>
+                <select id="main_hair_type" name="main_hair_type">
+                  <option value="" selected disabled>Выберите…</option>
+                  <option value="straight" id="opt_hair_type_straight">Прямые</option>
+                  <option value="wavy" id="opt_hair_type_wavy">Волнистые</option>
+                  <option value="curly" id="opt_hair_type_curly">Кудрявые</option>
+                  <option value="unspecified" id="opt_hair_type_unspecified">Не указывать</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid-3">
+              <div>
+                <label for="main_hair_density" id="label_main_hair_density">Густота</label>
+                <select id="main_hair_density" name="main_hair_density">
+                  <option value="unspecified" selected>Не указывать</option>
+                  <option value="thin">Редкие</option>
+                  <option value="medium">Средние</option>
+                  <option value="thick">Густые</option>
+                </select>
+              </div>
+              <div>
+                <label for="main_bangs" id="label_main_bangs">Чёлка</label>
+                <select id="main_bangs" name="main_bangs">
+                  <option value="unspecified" selected>Не указывать</option>
+                  <option value="yes">Есть</option>
+                  <option value="no">Нет</option>
+                </select>
+              </div>
+              <div>
+                <label for="main_parting" id="label_main_parting">Пробор</label>
+                <select id="main_parting" name="main_parting">
+                  <option value="unspecified" selected>Не указывать</option>
+                  <option value="left">Слева</option>
+                  <option value="right">Справа</option>
+                  <option value="center">По центру</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div>
+                <label for="main_nose" id="label_main_nose">Нос</label>
+                <select id="main_nose" name="main_nose">
+                  <option value="unspecified" selected>Не указывать</option>
+                  <option value="small">Маленький</option>
+                  <option value="medium">Средний</option>
+                  <option value="prominent">Выраженный</option>
+                </select>
+              </div>
+              <div>
+                <label for="main_lips" id="label_main_lips">Губы</label>
+                <select id="main_lips" name="main_lips">
+                  <option value="unspecified" selected>Не указывать</option>
+                  <option value="thin">Тонкие</option>
+                  <option value="medium">Средние</option>
+                  <option value="full">Пухлые</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div>
+                <label for="main_body_type" id="label_main_body_type">Телосложение</label>
+                <select id="main_body_type" name="main_body_type">
+                  <option value="unspecified" selected>Не указывать</option>
+                  <option value="slim">Худощавое</option>
+                  <option value="average">Среднее</option>
+                  <option value="chubby">Пухленькое</option>
+                </select>
+              </div>
+              <div>
+                <label for="main_height_vs_peers" id="label_main_height_vs_peers">Рост относительно сверстников</label>
+                <select id="main_height_vs_peers" name="main_height_vs_peers">
+                  <option value="unspecified" selected>Не указывать</option>
+                  <option value="shorter">Ниже</option>
+                  <option value="average">Средний</option>
+                  <option value="taller">Выше</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="main_special_features" id="label_main_special_features">Особенности ребёнка (опционально)</label>
+              <input id="main_special_features" name="main_special_features" maxlength="160" placeholder="Например, носит очки круглой формы" />
+            </div>
+            <div>
+              <label for="main_signature_look" id="label_main_signature_look">Фирменный образ (опционально)</label>
+              <input id="main_signature_look" name="main_signature_look" maxlength="160" placeholder="Например, носит розовый свитер" />
+            </div>
+          </div>
         </div>
 
+        <!-- П.3 -->
         <div class="field">
-          <label for="second_character_name" id="label_second_character_name">Имя второго героя (опционально)</label>
-          <input id="second_character_name" name="second_character_name" placeholder="Можно оставить пустым" />
+          <label for="second_hero_name" id="label_second_hero_name">Имя второго героя (опционально)</label>
+          <input id="second_hero_name" name="second_hero_name" placeholder="Можно оставить пустым" />
+          <small class="field-hint" id="hint_second_hero_name">Если имя не задано, второй герой не добавляется.</small>
         </div>
 
-        <div class="field">
-          <label for="second_character_photo" id="label_second_photo">Фото второго героя (опционально)</label>
-          <input id="second_character_photo" name="second_character_photo" type="file" accept="image/*" />
-          <small class="field-hint" id="hint_second_photo">Выберите фотографию или сделайте снимок.</small>
+        <!-- П.4 -->
+        <div class="field hidden" id="secondHeroBlock">
+          <label id="label_second_hero_mode">Внешность второго героя</label>
+
+          <div class="chip-row" id="secondHeroModeChips">
+            <button type="button" class="chip chip--active" data-value="preset" id="chip_second_preset">
+              <span id="chip_second_preset_title">Выбрать персонажа</span>
+              <small id="chip_second_preset_desc">6 готовых вариантов</small>
+            </button>
+            <button type="button" class="chip" data-value="custom" id="chip_second_custom">
+              <span id="chip_second_custom_title">Персональный выбор</span>
+              <small id="chip_second_custom_desc">Короткая анкета</small>
+            </button>
+            <button type="button" class="chip" data-value="photo" id="chip_second_photo">
+              <span id="chip_second_photo_title">Загрузить фото</span>
+              <small id="chip_second_photo_desc">Фото отправите в чат после формы</small>
+            </button>
+          </div>
+
+          <input type="hidden" id="second_hero_mode" name="second_hero_mode" value="preset" />
+          <input type="hidden" id="second_hero_preset_id" name="second_hero_preset_id" value="puzyrek" />
+
+          <small class="field-hint" id="hint_second_hero_mode">
+            Если выбран режим «Загрузить фото», бот попросит прислать фото в чате после отправки формы.
+          </small>
+
+          <!-- пресеты -->
+          <div id="secondHeroPresetBlock">
+            <span class="field-subtitle" id="subtitle_second_presets">Готовые персонажи</span>
+            <div class="chip-row" id="secondHeroPresetChips">
+              <button type="button" class="chip" data-preset="foxik">
+                <span id="preset_foxik_title">Лисёнок Фоксик</span>
+                <small id="preset_foxik_desc">Быстрый, любопытный, любит загадки</small>
+              </button>
+              <button type="button" class="chip" data-preset="tikhonya">
+                <span id="preset_tikhonya_title">Сова Тихоня</span>
+                <small id="preset_tikhonya_desc">Спокойная, наблюдательная, объясняет просто</small>
+              </button>
+              <button type="button" class="chip" data-preset="bublik">
+                <span id="preset_bublik_title">Щенок Бублик</span>
+                <small id="preset_bublik_desc">Добрый, верный, поддерживает</small>
+              </button>
+              <button type="button" class="chip" data-preset="pixel">
+                <span id="preset_pixel_title">Робот Пиксель</span>
+                <small id="preset_pixel_desc">Изобретательный помощник, строит карты</small>
+              </button>
+              <button type="button" class="chip" data-preset="iskrik">
+                <span id="preset_iskrik_title">Дракончик Искрик</span>
+                <small id="preset_iskrik_desc">Безобидный, «согревает» смелость</small>
+              </button>
+              <button type="button" class="chip chip--active" data-preset="puzyrek" id="preset_puzyrek_chip">
+                <span id="preset_puzyrek_title">Морской конёк Пузырёк</span>
+                <small id="preset_puzyrek_desc">Игривый, знает морские секреты</small>
+              </button>
+            </div>
+          </div>
+
+          <!-- кастом -->
+          <div id="secondHeroCustomBlock" class="hidden">
+            <span class="field-subtitle" id="subtitle_second_custom">Персональный выбор (кратко)</span>
+
+            <div class="grid-2">
+              <div>
+                <label for="second_custom_type" id="label_second_custom_type">Тип персонажа</label>
+                <select id="second_custom_type" name="second_custom_type">
+                  <option value="animal">Животное</option>
+                  <option value="human">Человек</option>
+                  <option value="toy">Игрушка</option>
+                  <option value="fantasy">Сказочное существо</option>
+                  <option value="robot">Робот</option>
+                  <option value="animated_object">Предмет “оживший”</option>
+                  <option value="other">Другое</option>
+                </select>
+              </div>
+              <div>
+                <label for="second_custom_role" id="label_second_custom_role">Ключевая роль</label>
+                <select id="second_custom_role" name="second_custom_role">
+                  <option value="helper">Помощник</option>
+                  <option value="friend">Друг</option>
+                  <option value="mentor">Наставник</option>
+                  <option value="companion">Спутник</option>
+                  <option value="wise_advisor">Умный советчик</option>
+                  <option value="comic">Комический персонаж</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="secondTypeOtherWrap" class="hidden">
+              <label for="second_custom_type_other_text" id="label_second_custom_type_other_text">Уточните тип</label>
+              <input id="second_custom_type_other_text" name="second_custom_type_other_text" maxlength="60" placeholder="Например, облачко" />
+            </div>
+
+            <label id="label_second_traits">3 характеристики (строго три)</label>
+            <div class="grid-3">
+              <input id="second_trait_1" maxlength="20" placeholder="смелый" />
+              <input id="second_trait_2" maxlength="20" placeholder="добрый" />
+              <input id="second_trait_3" maxlength="20" placeholder="любопытный" />
+            </div>
+
+            <label id="label_second_markers">Визуальные маркеры (2–3 признака)</label>
+            <div class="grid-3">
+              <input id="second_marker_1" maxlength="40" placeholder="голубая шапочка" />
+              <input id="second_marker_2" maxlength="40" placeholder="круглые очки" />
+              <input id="second_marker_3" maxlength="40" placeholder="рюкзачок без знаков (опц.)" />
+            </div>
+
+            <div>
+              <label for="second_unique_prop" id="label_second_unique_prop">Уникальный реквизит (ровно один предмет, опционально)</label>
+              <input id="second_unique_prop" name="second_unique_prop" maxlength="40" placeholder="Например, компас" />
+            </div>
+          </div>
         </div>
 
+        <!-- П.5: место действия -->
         <div class="field">
-          <label for="narrative_style" id="label_narrative_style">Стиль повествования *</label>
-          <select id="narrative_style" name="narrative_style" required>
-            <option value="gentle_meditative">Спокойный медитативный</option>
-            <option value="adventurous">Приключенческий</option>
-            <option value="mysterious">Загадочный</option>
-            <option value="humorous">С юмором</option>
-            <option value="lyrical">Лирический</option>
+          <label id="label_setting_mode">Место действия *</label>
+
+          <div class="chip-row" id="settingModeChips">
+            <button type="button" class="chip chip--active" data-value="preset" id="chip_setting_preset">
+              <span id="chip_setting_preset_title">Выбрать место</span>
+              <small id="chip_setting_preset_desc">6 вариантов</small>
+            </button>
+            <button type="button" class="chip" data-value="custom" id="chip_setting_custom">
+              <span id="chip_setting_custom_title">Персонифицированное место</span>
+              <small id="chip_setting_custom_desc">Тип, время, сезон, детали</small>
+            </button>
+          </div>
+
+          <input type="hidden" id="setting_mode" name="setting_mode" value="preset" />
+          <input type="hidden" id="setting_preset_id" name="setting_preset_id" value="fun_yard" />
+
+          <!-- preset места -->
+          <div id="settingPresetBlock">
+            <span class="field-subtitle" id="subtitle_setting_presets">Готовые места</span>
+            <div class="chip-row" id="settingPresetChips">
+              <button type="button" class="chip chip--active" data-preset="fun_yard" id="place_fun_yard">Двор весёлых игр</button>
+              <button type="button" class="chip" data-preset="warm_home" id="place_warm_home">Тёплый дом</button>
+              <button type="button" class="chip" data-preset="city_road" id="place_city_road">Дорога в городе</button>
+              <button type="button" class="chip" data-preset="park_nature" id="place_park_nature">Парк и природа</button>
+              <button type="button" class="chip" data-preset="wonder_lab" id="place_wonder_lab">Лаборатория чудес</button>
+              <button type="button" class="chip" data-preset="book_house" id="place_book_house">Дом книг</button>
+            </div>
+          </div>
+
+          <!-- custom места -->
+          <div id="settingCustomBlock" class="hidden">
+            <span class="field-subtitle" id="subtitle_setting_custom">Персонифицированное место</span>
+
+            <div class="grid-2">
+              <div>
+                <label for="setting_custom_type" id="label_setting_custom_type">Тип места</label>
+                <select id="setting_custom_type" name="setting_custom_type">
+                  <option value="home">Дом</option>
+                  <option value="playground">Площадка</option>
+                  <option value="school_garden">Сад или школа</option>
+                  <option value="park_forest">Парк или лес</option>
+                  <option value="city">Город</option>
+                  <option value="other">Другое</option>
+                </select>
+              </div>
+              <div id="settingTypeOtherWrap" class="hidden">
+                <label for="setting_custom_type_other_text" id="label_setting_custom_type_other_text">Уточните тип</label>
+                <input id="setting_custom_type_other_text" name="setting_custom_type_other_text" maxlength="60" placeholder="Например, океанариум" />
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div>
+                <label for="setting_custom_time" id="label_setting_custom_time">Время</label>
+                <select id="setting_custom_time" name="setting_custom_time">
+                  <option value="morning">Утро</option>
+                  <option value="day" selected>День</option>
+                  <option value="evening">Вечер</option>
+                </select>
+              </div>
+              <div>
+                <label for="setting_custom_season" id="label_setting_custom_season">Сезон</label>
+                <select id="setting_custom_season" name="setting_custom_season">
+                  <option value="spring">Весна</option>
+                  <option value="summer" selected>Лето</option>
+                  <option value="autumn">Осень</option>
+                  <option value="winter">Зима</option>
+                </select>
+              </div>
+            </div>
+
+            <label id="label_setting_details">Три детали места</label>
+            <div class="grid-3">
+              <input id="setting_detail_1" maxlength="40" placeholder="синяя дверь" />
+              <input id="setting_detail_2" maxlength="40" placeholder="ковёр со звёздами" />
+              <input id="setting_detail_3" maxlength="40" placeholder="большой фикус" />
+            </div>
+
+            <label id="label_setting_realism">Реалистичность</label>
+            <div class="chip-row" id="settingRealismChips">
+              <button type="button" class="chip chip--active" data-value="life" id="chip_realism_life">Как в жизни</button>
+              <button type="button" class="chip" data-value="slightly_fairy" id="chip_realism_fairy">Чуть сказочно, но узнаваемо</button>
+            </div>
+            <input type="hidden" id="setting_custom_realism" name="setting_custom_realism" value="life" />
+          </div>
+        </div>
+
+        <!-- П.6: возрастная группа (обновлённая шкала) -->
+        <div class="field">
+          <label for="age_group" id="label_age_group">Возрастная группа *</label>
+          <select id="age_group" name="age_group" required>
+            <option value="0_3">0–3</option>
+            <option value="4_6" selected>4–6</option>
+            <option value="7_12">7–12</option>
+            <option value="12_16">12–16</option>
+            <option value="16_plus">16+</option>
           </select>
         </div>
 
+        <!-- П.7: стиль повествования (обновлённые enum) -->
         <div class="field">
-          <label for="educational_plot" id="label_educational_plot">Поучительный сюжет *</label>
-          <select id="educational_plot" name="educational_plot" required>
+          <label for="narrative_style" id="label_narrative_style">Стиль повествования *</label>
+          <select id="narrative_style" name="narrative_style" required>
+            <option value="calm">Спокойный медитативный</option>
+            <option value="adventure">Приключенческий</option>
+            <option value="mystery">Загадочный</option>
+            <option value="humor">С юмором</option>
+            <option value="lyric">Лирический</option>
+          </select>
+        </div>
+
+        <!-- П.8: мораль (переименовано в moral_theme) -->
+        <div class="field">
+          <label for="moral_theme" id="label_moral_theme">Поучительный сюжет *</label>
+          <select id="moral_theme" name="moral_theme" required>
             <option value="kindness_help">Доброта и помощь другим</option>
             <option value="power_of_friendship">Сила дружбы</option>
             <option value="honesty_trust">Честность и доверие</option>
@@ -307,11 +698,20 @@
           </select>
         </div>
 
+        <!-- П.9: стиль иллюстраций -->
         <div class="field">
-          <label for="setting" id="label_setting">Место действия (опционально)</label>
-          <input id="setting" name="setting" placeholder="Лес, море, космический город…" />
+          <label for="illustration_style_id" id="label_illustration_style_id">Стиль иллюстраций *</label>
+          <select id="illustration_style_id" name="illustration_style_id" required>
+            <option value="storybook_semi_realism">Полу-реалистичная книжная иллюстрация</option>
+            <option value="cartoon_3d">3D мульт</option>
+            <option value="watercolor_ink">Акварель + тушь</option>
+            <option value="gouache_flat">Гуашь / плоская иллюстрация с объёмом</option>
+            <option value="clean_vector">Векторная иллюстрация</option>
+            <option value="anime">Аниме</option>
+          </select>
         </div>
 
+        <!-- П.10: язык сказки -->
         <div class="field">
           <label for="language" id="label_language">Язык сказки *</label>
           <select id="language" name="language" required>
@@ -320,19 +720,9 @@
           </select>
         </div>
 
-        <div class="field">
-          <label for="age_group" id="label_age_group">Возраст ребёнка *</label>
-          <select id="age_group" name="age_group" required>
-            <option value="toddler">1–3 года</option>
-            <option value="preschool" selected>4–6 лет</option>
-            <option value="primary">7–9 лет</option>
-            <option value="preteen">10–12 лет</option>
-          </select>
-        </div>
-
         <button type="submit" id="submitBtn">Создать сказку</button>
         <p class="note" id="note">
-          Фотографии можно отправить боту отдельными сообщениями после формы — он свяжет их с этой сказкой. Зоны выбора фото выше опциональны.
+          После формы бот при необходимости запросит фото в чате. Медиа загружается в чат, а MiniApp отправляет строго структурированный JSON.
         </p>
       </form>
     </div>
@@ -340,138 +730,135 @@
 
   <script>
     const tg = window.Telegram?.WebApp || null;
-    const isTelegramWebApp = Boolean(tg && tg.initData);
+    const isTelegramWebApp = Boolean(tg && (tg.initData || tg.initDataUnsafe));
     const WEBHOOK_URL = 'https://oglob.app.n8n.cloud/webhook-test/telegram-puzirek';
-    
+
     if (isTelegramWebApp) {
       tg.ready();
       tg.expand();
     }
-    
+
     const form = document.getElementById('storyForm');
     const submitBtn = document.getElementById('submitBtn');
+
+    // session_id на каждую попытку создания сказки
+    const sessionId = (crypto?.randomUUID ? crypto.randomUUID() : String(Date.now()) + "_" + Math.random().toString(16).slice(2));
 
     const translations = {
       ru: {
         title: 'Создать сказку',
         description: 'Заполните параметры — бот сгенерирует персональную сказку и отправит её в чат в виде PDF-книги.',
-        child_name_label: 'Имя главного героя *',
-        child_name_placeholder: 'Например, Арина',
-        main_photo_label: 'Фото главного героя (опционально)',
-        main_photo_hint: 'Выберите фотографию или сделайте снимок.',
-        second_character_label: 'Имя второго героя (опционально)',
-        second_character_placeholder: 'Можно оставить пустым',
-        second_photo_label: 'Фото второго героя (опционально)',
-        second_photo_hint: 'Выберите фотографию или сделайте снимок.',
-        educational_plot_label: 'Поучительный сюжет *',
-        educational_plot_options: {
-          kindness_help: 'Доброта и помощь другим',
-          power_of_friendship: 'Сила дружбы',
-          honesty_trust: 'Честность и доверие',
-          accepting_differences: 'Принятие различий',
-          admitting_mistakes: 'Умение признавать ошибки',
-          patience_perseverance: 'Терпение и настойчивость',
-          care_for_nature: 'Забота о природе',
-          safety_caution: 'Безопасность и осторожность',
-          respect_parents_adults: 'Уважение к родителям и взрослым',
-          sharing: 'Умение делиться',
-          independence_responsibility: 'Самостоятельность и ответственность',
-          emotions_expression: 'Эмоции и умение говорить о них',
-          anti_bullying: 'Противостояние буллингу',
-          value_of_work: 'Ценность труда',
-          tidiness_order: 'Аккуратность и порядок',
-          gadgets_moderation: 'Умеренность в гаджетах',
-          gratitude: 'Благодарность',
-          imagination_creativity: 'Воображение и творчество'
-        },
+        main_hero_name_label: 'Имя главного героя *',
+        main_hero_name_placeholder: 'Например, Арина',
+
+        main_hero_appearance_mode_label: 'Внешность главного героя *',
+        main_mode_hint: 'Если выбран режим «Загрузить фото», бот попросит прислать фото в чате после отправки формы.',
+        main_mode_auto_title: 'Предложить внешность',
+        main_mode_auto_desc: 'Автогенерация без параметров',
+        main_mode_select_title: 'Выбрать внешность',
+        main_mode_select_desc: 'Параметры: кожа, глаза, волосы…',
+        main_mode_photo_title: 'Загрузить фото',
+        main_mode_photo_desc: 'Фото отправите в чат после формы',
+        main_appearance_subtitle: 'Параметры внешности (для узнаваемости)',
+
+        second_hero_name_label: 'Имя второго героя (опционально)',
+        second_hero_name_placeholder: 'Можно оставить пустым',
+        second_hero_name_hint: 'Если имя не задано, второй герой не добавляется.',
+
+        second_hero_mode_label: 'Внешность второго героя',
+        second_mode_hint: 'Если выбран режим «Загрузить фото», бот попросит прислать фото в чате после отправки формы.',
+        second_mode_preset_title: 'Выбрать персонажа',
+        second_mode_preset_desc: '6 готовых вариантов',
+        second_mode_custom_title: 'Персональный выбор',
+        second_mode_custom_desc: 'Короткая анкета',
+        second_mode_photo_title: 'Загрузить фото',
+        second_mode_photo_desc: 'Фото отправите в чат после формы',
+        second_presets_subtitle: 'Готовые персонажи',
+        second_custom_subtitle: 'Персональный выбор (кратко)',
+
+        setting_mode_label: 'Место действия *',
+        setting_mode_preset_title: 'Выбрать место',
+        setting_mode_preset_desc: '6 вариантов',
+        setting_mode_custom_title: 'Персонифицированное место',
+        setting_mode_custom_desc: 'Тип, время, сезон, детали',
+        setting_presets_subtitle: 'Готовые места',
+        setting_custom_subtitle: 'Персонифицированное место',
+
+        age_group_label: 'Возрастная группа *',
         narrative_style_label: 'Стиль повествования *',
-        narrative_style_options: {
-          gentle_meditative: 'Спокойный медитативный',
-          adventurous: 'Приключенческий',
-          mysterious: 'Загадочный',
-          humorous: 'С юмором',
-          lyrical: 'Лирический'
-        },
-        setting_label: 'Место действия (опционально)',
-        setting_placeholder: 'Лес, море, космический город…',
+        moral_theme_label: 'Поучительный сюжет *',
+        illustration_style_label: 'Стиль иллюстраций *',
         language_label: 'Язык сказки *',
-        language_options: {
-          ru: 'Русский',
-          en: 'English'
-        },
-        age_group_label: 'Возраст ребёнка *',
-        age_group_options: {
-          toddler: '1–3 года',
-          preschool: '4–6 лет',
-          primary: '7–9 лет',
-          preteen: '10–12 лет'
-        },
+
         submit: 'Создать сказку',
-        note: 'Фотографии можно отправить боту отдельными сообщениями после формы — он свяжет их с этой сказкой. Зоны выбора фото выше опциональны.'
+        note_base: 'После формы бот при необходимости запросит фото в чате. Медиа загружается в чат, а MiniApp отправляет строго структурированный JSON.'
       },
       en: {
         title: 'Create a story',
         description: 'Fill in the fields — the bot will generate a personalised story and send it to the chat as a PDF book.',
-        child_name_label: 'Main character’s name *',
-        child_name_placeholder: 'For example, Arina',
-        main_photo_label: 'Main character photo (optional)',
-        main_photo_hint: 'Choose a picture or take a photo.',
-        second_character_label: 'Second character’s name (optional)',
-        second_character_placeholder: 'You may leave this empty',
-        second_photo_label: 'Second character photo (optional)',
-        second_photo_hint: 'Choose a picture or take a photo.',
-        educational_plot_label: 'Educational plot *',
-        educational_plot_options: {
-          kindness_help: 'Kindness and helping others',
-          power_of_friendship: 'Power of friendship',
-          honesty_trust: 'Honesty and trust',
-          accepting_differences: 'Accepting differences',
-          admitting_mistakes: 'Admitting mistakes',
-          patience_perseverance: 'Patience and perseverance',
-          care_for_nature: 'Caring for nature',
-          safety_caution: 'Safety and caution',
-          respect_parents_adults: 'Respect for parents and adults',
-          sharing: 'Sharing with others',
-          independence_responsibility: 'Independence and responsibility',
-          emotions_expression: 'Emotions and talking about them',
-          anti_bullying: 'Standing up to bullying',
-          value_of_work: 'Value of work',
-          tidiness_order: 'Tidiness and order',
-          gadgets_moderation: 'Moderation with gadgets',
-          gratitude: 'Gratitude',
-          imagination_creativity: 'Imagination and creativity'
-        },
+        main_hero_name_label: 'Main character’s name *',
+        main_hero_name_placeholder: 'For example, Arina',
+
+        main_hero_appearance_mode_label: 'Main character appearance *',
+        main_mode_hint: 'If you choose “Upload photo”, the bot will ask for the photo in the chat after you submit the form.',
+        main_mode_auto_title: 'Suggest an appearance',
+        main_mode_auto_desc: 'Auto, no parameters',
+        main_mode_select_title: 'Choose appearance',
+        main_mode_select_desc: 'Skin, eyes, hair…',
+        main_mode_photo_title: 'Upload photo',
+        main_mode_photo_desc: 'Send it in chat after the form',
+        main_appearance_subtitle: 'Appearance parameters (for recognisability)',
+
+        second_hero_name_label: 'Second character’s name (optional)',
+        second_hero_name_placeholder: 'You may leave this empty',
+        second_hero_name_hint: 'If empty, the second character will not be added.',
+
+        second_hero_mode_label: 'Second character appearance',
+        second_mode_hint: 'If you choose “Upload photo”, the bot will ask for the photo in the chat after you submit the form.',
+        second_mode_preset_title: 'Pick a character',
+        second_mode_preset_desc: '6 ready presets',
+        second_mode_custom_title: 'Custom',
+        second_mode_custom_desc: 'Short questionnaire',
+        second_mode_photo_title: 'Upload photo',
+        second_mode_photo_desc: 'Send it in chat after the form',
+        second_presets_subtitle: 'Ready characters',
+        second_custom_subtitle: 'Custom (short)',
+
+        setting_mode_label: 'Setting *',
+        setting_mode_preset_title: 'Pick a place',
+        setting_mode_preset_desc: '6 presets',
+        setting_mode_custom_title: 'Personalised place',
+        setting_mode_custom_desc: 'Type, time, season, details',
+        setting_presets_subtitle: 'Preset places',
+        setting_custom_subtitle: 'Personalised place',
+
+        age_group_label: 'Age group *',
         narrative_style_label: 'Narrative style *',
-        narrative_style_options: {
-          gentle_meditative: 'Gentle, meditative',
-          adventurous: 'Adventurous',
-          mysterious: 'Mysterious',
-          humorous: 'Humorous',
-          lyrical: 'Lyrical'
-        },
-        setting_label: 'Setting (optional)',
-        setting_placeholder: 'Forest, sea, space city…',
+        moral_theme_label: 'Educational plot *',
+        illustration_style_label: 'Illustration style *',
         language_label: 'Story language *',
-        language_options: {
-          ru: 'Russian',
-          en: 'English'
-        },
-        age_group_label: 'Child’s age *',
-        age_group_options: {
-          toddler: '1–3 years',
-          preschool: '4–6 years',
-          primary: '7–9 years',
-          preteen: '10–12 years'
-        },
+
         submit: 'Create story',
-        note: 'You can send photos to the bot as separate messages after submitting the form — they will be linked to this story. The photo selection areas above are optional.'
+        note_base: 'After submitting, the bot may ask for photos in the chat. Media is sent in chat; the MiniApp sends a structured JSON payload.'
       }
     };
 
-    // Получаем lang из URL
+    // язык UI: URL параметр > язык Telegram пользователя > en
     const urlParams = new URLSearchParams(window.location.search);
-    const langFromUrl = urlParams.get('lang') || 'en';
-    let currentLang = langFromUrl;
+    const langFromUrl = urlParams.get('lang');
+    const tgLang = (tg?.initDataUnsafe?.user?.language_code || '').toLowerCase();
+    const defaultLang = langFromUrl || (tgLang.startsWith('ru') ? 'ru' : 'en');
+    let currentLang = defaultLang;
+
+    function setRequiredForMainAppearance(isOn) {
+      // обязательные поля из таблицы: skin_tone, eyes_color, hair_color, hair_length, hair_type
+      const requiredIds = ['main_skin_tone','main_eyes_color','main_hair_color','main_hair_length','main_hair_type'];
+      requiredIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.required = Boolean(isOn);
+      });
+    }
 
     function applyTranslations(lang) {
       const t = translations[lang];
@@ -481,94 +868,417 @@
       document.getElementById('title').textContent = t.title;
       document.getElementById('description').textContent = t.description;
 
-      document.getElementById('label_child_name').textContent = t.child_name_label;
-      document.getElementById('label_main_photo').textContent = t.main_photo_label;
-      document.getElementById('hint_main_photo').textContent = t.main_photo_hint;
-      document.getElementById('label_second_character_name').textContent = t.second_character_label;
-      document.getElementById('hint_second_photo').textContent = t.second_photo_hint;
-      document.getElementById('label_second_photo').textContent = t.second_photo_label;
-      document.getElementById('label_educational_plot').textContent = t.educational_plot_label;
-      document.getElementById('label_narrative_style').textContent = t.narrative_style_label;
-      document.getElementById('label_setting').textContent = t.setting_label;
-      document.getElementById('label_language').textContent = t.language_label;
+      document.getElementById('label_main_hero_name').textContent = t.main_hero_name_label;
+      document.getElementById('main_hero_name').placeholder = t.main_hero_name_placeholder;
+
+      document.getElementById('label_main_hero_appearance_mode').textContent = t.main_hero_appearance_mode_label;
+      document.getElementById('hint_main_hero_mode').textContent = t.main_mode_hint;
+      document.getElementById('chip_main_auto_title').textContent = t.main_mode_auto_title;
+      document.getElementById('chip_main_auto_desc').textContent = t.main_mode_auto_desc;
+      document.getElementById('chip_main_select_title').textContent = t.main_mode_select_title;
+      document.getElementById('chip_main_select_desc').textContent = t.main_mode_select_desc;
+      document.getElementById('chip_main_photo_title').textContent = t.main_mode_photo_title;
+      document.getElementById('chip_main_photo_desc').textContent = t.main_mode_photo_desc;
+      document.getElementById('subtitle_main_appearance').textContent = t.main_appearance_subtitle;
+
+      document.getElementById('label_second_hero_name').textContent = t.second_hero_name_label;
+      document.getElementById('second_hero_name').placeholder = t.second_hero_name_placeholder;
+      document.getElementById('hint_second_hero_name').textContent = t.second_hero_name_hint;
+
+      document.getElementById('label_second_hero_mode').textContent = t.second_hero_mode_label;
+      document.getElementById('hint_second_hero_mode').textContent = t.second_mode_hint;
+      document.getElementById('chip_second_preset_title').textContent = t.second_mode_preset_title;
+      document.getElementById('chip_second_preset_desc').textContent = t.second_mode_preset_desc;
+      document.getElementById('chip_second_custom_title').textContent = t.second_mode_custom_title;
+      document.getElementById('chip_second_custom_desc').textContent = t.second_mode_custom_desc;
+      document.getElementById('chip_second_photo_title').textContent = t.second_mode_photo_title;
+      document.getElementById('chip_second_photo_desc').textContent = t.second_mode_photo_desc;
+      document.getElementById('subtitle_second_presets').textContent = t.second_presets_subtitle;
+      document.getElementById('subtitle_second_custom').textContent = t.second_custom_subtitle;
+
+      document.getElementById('label_setting_mode').textContent = t.setting_mode_label;
+      document.getElementById('chip_setting_preset_title').textContent = t.setting_mode_preset_title;
+      document.getElementById('chip_setting_preset_desc').textContent = t.setting_mode_preset_desc;
+      document.getElementById('chip_setting_custom_title').textContent = t.setting_mode_custom_title;
+      document.getElementById('chip_setting_custom_desc').textContent = t.setting_mode_custom_desc;
+      document.getElementById('subtitle_setting_presets').textContent = t.setting_presets_subtitle;
+      document.getElementById('subtitle_setting_custom').textContent = t.setting_custom_subtitle;
+
       document.getElementById('label_age_group').textContent = t.age_group_label;
-
-      form.child_name.placeholder = t.child_name_placeholder;
-      form.second_character_name.placeholder = t.second_character_placeholder;
-      form.setting.placeholder = t.setting_placeholder;
-
-      // Обновляем select options
-      const updateSelectOptions = (select, optionsMap) => {
-        for (const option of select.options) {
-          const key = option.value;
-          if (optionsMap[key]) option.textContent = optionsMap[key];
-        }
-      };
-      
-      updateSelectOptions(form.educational_plot, t.educational_plot_options);
-      updateSelectOptions(form.narrative_style, t.narrative_style_options);
-      updateSelectOptions(form.language, t.language_options);
-      updateSelectOptions(form.age_group, t.age_group_options);
+      document.getElementById('label_narrative_style').textContent = t.narrative_style_label;
+      document.getElementById('label_moral_theme').textContent = t.moral_theme_label;
+      document.getElementById('label_illustration_style_id').textContent = t.illustration_style_label;
+      document.getElementById('label_language').textContent = t.language_label;
 
       submitBtn.textContent = t.submit;
-      document.getElementById('note').textContent = t.note;
+      document.getElementById('note').textContent = t.note_base;
 
-      // Устанавливаем язык в форме
+      // по умолчанию язык сказки = язык интерфейса (можно изменить вручную)
       form.language.value = lang;
     }
 
-    // Применяем язык из URL при загрузке
-    applyTranslations(langFromUrl);
-    
+    applyTranslations(defaultLang);
+
     const langButtons = document.querySelectorAll('.lang-btn');
     langButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
         const lang = btn.dataset.lang;
         if (lang === currentLang) return;
-        langButtons.forEach((b) => {
-          b.classList.toggle('lang-btn--active', b === btn);
-        });
+        langButtons.forEach((b) => b.classList.toggle('lang-btn--active', b === btn));
         applyTranslations(lang);
       });
     });
 
+    function setActiveChip(groupEl, predicateFn) {
+      const chips = groupEl.querySelectorAll('.chip');
+      chips.forEach((chip) => chip.classList.toggle('chip--active', Boolean(predicateFn(chip))));
+    }
+
+    // --- main hero mode ---
+    const mainHeroModeChips = document.getElementById('mainHeroModeChips');
+    const mainHeroModeInput = document.getElementById('main_hero_appearance_mode');
+    const mainHeroAppearanceBlock = document.getElementById('mainHeroAppearanceBlock');
+
+    function applyMainHeroMode(mode) {
+      mainHeroModeInput.value = mode;
+      setActiveChip(mainHeroModeChips, (chip) => chip.dataset.value === mode);
+
+      const show = (mode === 'select');
+      mainHeroAppearanceBlock.classList.toggle('hidden', !show);
+      setRequiredForMainAppearance(show);
+      updateNote();
+    }
+
+    mainHeroModeChips.addEventListener('click', (e) => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      applyMainHeroMode(btn.dataset.value);
+    });
+
+    // default main mode = auto
+    applyMainHeroMode(mainHeroModeInput.value);
+
+    // --- second hero block visibility by name ---
+    const secondHeroNameInput = document.getElementById('second_hero_name');
+    const secondHeroBlock = document.getElementById('secondHeroBlock');
+    const secondHeroModeChips = document.getElementById('secondHeroModeChips');
+    const secondHeroModeInput = document.getElementById('second_hero_mode');
+    const secondHeroPresetIdInput = document.getElementById('second_hero_preset_id');
+    const secondHeroPresetBlock = document.getElementById('secondHeroPresetBlock');
+    const secondHeroPresetChips = document.getElementById('secondHeroPresetChips');
+    const secondHeroCustomBlock = document.getElementById('secondHeroCustomBlock');
+
+    function applySecondHeroMode(mode) {
+      secondHeroModeInput.value = mode;
+      setActiveChip(secondHeroModeChips, (chip) => chip.dataset.value === mode);
+
+      secondHeroPresetBlock.classList.toggle('hidden', mode !== 'preset');
+      secondHeroCustomBlock.classList.toggle('hidden', mode !== 'custom');
+      updateNote();
+    }
+
+    function applySecondHeroVisibility() {
+      const hasName = secondHeroNameInput.value.trim().length > 0;
+      secondHeroBlock.classList.toggle('hidden', !hasName);
+      if (!hasName) {
+        // если имени нет — режим none, данные второго героя не отправляем
+        secondHeroModeInput.value = 'none';
+      } else {
+        // восстановим режим, если он был none
+        if (secondHeroModeInput.value === 'none') secondHeroModeInput.value = 'preset';
+        applySecondHeroMode(secondHeroModeInput.value);
+      }
+      updateNote();
+    }
+
+    secondHeroNameInput.addEventListener('input', applySecondHeroVisibility);
+
+    secondHeroModeChips.addEventListener('click', (e) => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      applySecondHeroMode(btn.dataset.value);
+    });
+
+    secondHeroPresetChips.addEventListener('click', (e) => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      const preset = btn.dataset.preset;
+      if (!preset) return;
+      secondHeroPresetIdInput.value = preset;
+      setActiveChip(secondHeroPresetChips, (chip) => chip.dataset.preset === preset);
+    });
+
+    // --- second custom "other type" ---
+    const secondCustomType = document.getElementById('second_custom_type');
+    const secondTypeOtherWrap = document.getElementById('secondTypeOtherWrap');
+    secondCustomType.addEventListener('change', () => {
+      secondTypeOtherWrap.classList.toggle('hidden', secondCustomType.value !== 'other');
+    });
+
+    // init second hero visibility
+    applySecondHeroVisibility();
+    // init preset selection highlight
+    setActiveChip(secondHeroPresetChips, (chip) => chip.dataset.preset === secondHeroPresetIdInput.value);
+
+    // --- setting mode ---
+    const settingModeChips = document.getElementById('settingModeChips');
+    const settingModeInput = document.getElementById('setting_mode');
+    const settingPresetIdInput = document.getElementById('setting_preset_id');
+    const settingPresetBlock = document.getElementById('settingPresetBlock');
+    const settingCustomBlock = document.getElementById('settingCustomBlock');
+    const settingPresetChips = document.getElementById('settingPresetChips');
+
+    function applySettingMode(mode) {
+      settingModeInput.value = mode;
+      setActiveChip(settingModeChips, (chip) => chip.dataset.value === mode);
+      settingPresetBlock.classList.toggle('hidden', mode !== 'preset');
+      settingCustomBlock.classList.toggle('hidden', mode !== 'custom');
+    }
+
+    settingModeChips.addEventListener('click', (e) => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      applySettingMode(btn.dataset.value);
+    });
+
+    settingPresetChips.addEventListener('click', (e) => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      const preset = btn.dataset.preset;
+      if (!preset) return;
+      settingPresetIdInput.value = preset;
+      setActiveChip(settingPresetChips, (chip) => chip.dataset.preset === preset);
+    });
+
+    applySettingMode(settingModeInput.value);
+
+    // setting custom "other"
+    const settingCustomType = document.getElementById('setting_custom_type');
+    const settingTypeOtherWrap = document.getElementById('settingTypeOtherWrap');
+    settingCustomType.addEventListener('change', () => {
+      settingTypeOtherWrap.classList.toggle('hidden', settingCustomType.value !== 'other');
+    });
+
+    // setting realism
+    const settingRealismChips = document.getElementById('settingRealismChips');
+    const settingRealismInput = document.getElementById('setting_custom_realism');
+    settingRealismChips.addEventListener('click', (e) => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      const v = btn.dataset.value;
+      settingRealismInput.value = v;
+      setActiveChip(settingRealismChips, (chip) => chip.dataset.value === v);
+    });
+
+    function updateNote() {
+      const t = translations[currentLang];
+      const requests = [];
+      if (mainHeroModeInput.value === 'photo') requests.push(currentLang === 'ru' ? 'фото главного героя' : 'main character photo');
+
+      const hasSecond = secondHeroNameInput.value.trim().length > 0;
+      const secondMode = hasSecond ? secondHeroModeInput.value : 'none';
+      if (secondMode === 'photo') requests.push(currentLang === 'ru' ? 'фото второго героя' : 'second character photo');
+
+      if (requests.length === 0) {
+        document.getElementById('note').textContent = t.note_base;
+        return;
+      }
+
+      const orderHintRu = 'Порядок запроса: сначала главный герой, затем второй.';
+      const orderHintEn = 'Request order: main character first, then second.';
+      const list = requests.join(currentLang === 'ru' ? ', ' : ', ');
+      document.getElementById('note').textContent =
+        t.note_base + ' ' +
+        (currentLang === 'ru'
+          ? `После отправки формы бот запросит: ${list}. ${orderHintRu}`
+          : `After submission, the bot will ask for: ${list}. ${orderHintEn}`);
+    }
+
+    updateNote();
+
+    function buildPostSubmitPhotoRequests() {
+      const arr = [];
+      if (mainHeroModeInput.value === 'photo') arr.push('main_hero');
+
+      const hasSecond = secondHeroNameInput.value.trim().length > 0;
+      const secondMode = hasSecond ? secondHeroModeInput.value : 'none';
+      if (secondMode === 'photo') arr.push('second_hero');
+
+      return arr;
+    }
+
+    function validateSecondHeroCustomIfNeeded() {
+      const hasSecond = secondHeroNameInput.value.trim().length > 0;
+      if (!hasSecond) return true;
+      if (secondHeroModeInput.value !== 'custom') return true;
+
+      const trait1 = document.getElementById('second_trait_1').value.trim();
+      const trait2 = document.getElementById('second_trait_2').value.trim();
+      const trait3 = document.getElementById('second_trait_3').value.trim();
+
+      const m1 = document.getElementById('second_marker_1').value.trim();
+      const m2 = document.getElementById('second_marker_2').value.trim();
+
+      if (!trait1 || !trait2 || !trait3) return false;
+      if (!m1 || !m2) return false;
+      return true;
+    }
+
+    function validateSettingCustomIfNeeded() {
+      if (settingModeInput.value !== 'custom') return true;
+      const d1 = document.getElementById('setting_detail_1').value.trim();
+      const d2 = document.getElementById('setting_detail_2').value.trim();
+      const d3 = document.getElementById('setting_detail_3').value.trim();
+      return Boolean(d1 && d2 && d3);
+    }
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       submitBtn.disabled = true;
-      
+
       if (!isTelegramWebApp) {
-        alert('Открыто не внутри Telegram'); 
+        alert(currentLang === 'ru' ? 'Открыто не внутри Telegram' : 'Not opened inside Telegram');
         submitBtn.disabled = false;
         return;
       }
-      
+
+      // валидации, чтобы JSON был структурированным и без "угадывания"
+      if (!validateSecondHeroCustomIfNeeded()) {
+        alert(currentLang === 'ru'
+          ? 'Для персонального второго героя заполните 3 характеристики и минимум 2 визуальных маркера.'
+          : 'For a custom second character, fill 3 traits and at least 2 visual markers.');
+        submitBtn.disabled = false;
+        return;
+      }
+      if (!validateSettingCustomIfNeeded()) {
+        alert(currentLang === 'ru'
+          ? 'Для персонифицированного места заполните 3 детали.'
+          : 'For a personalised place, fill 3 details.');
+        submitBtn.disabled = false;
+        return;
+      }
+
+      const mainMode = mainHeroModeInput.value;
+
+      const mainHeroAppearance =
+        (mainMode === 'select')
+          ? {
+              age_years: document.getElementById('main_age_years').value.trim() || null,
+              gender: document.getElementById('main_gender').value,
+              skin_tone: document.getElementById('main_skin_tone').value,
+              face_shape: document.getElementById('main_face_shape').value,
+              face_accent: document.getElementById('main_face_accent').value.trim() || null,
+              eyes_color: document.getElementById('main_eyes_color').value,
+              eyes_shape: document.getElementById('main_eyes_shape').value,
+              eyes_size: document.getElementById('main_eyes_size').value,
+              hair_color: document.getElementById('main_hair_color').value,
+              hair_length: document.getElementById('main_hair_length').value,
+              hair_type: document.getElementById('main_hair_type').value,
+              hair_density: document.getElementById('main_hair_density').value,
+              bangs: document.getElementById('main_bangs').value,
+              parting: document.getElementById('main_parting').value,
+              nose: document.getElementById('main_nose').value,
+              lips: document.getElementById('main_lips').value,
+              body_type: document.getElementById('main_body_type').value,
+              height_vs_peers: document.getElementById('main_height_vs_peers').value,
+              special_features: document.getElementById('main_special_features').value.trim() || null,
+              signature_look: document.getElementById('main_signature_look').value.trim() || null
+            }
+          : null;
+
+      const secondName = secondHeroNameInput.value.trim() || null;
+      const hasSecond = Boolean(secondName);
+
+      const secondMode = hasSecond ? (secondHeroModeInput.value || 'preset') : 'none';
+
+      let secondHeroPresetId = null;
+      let secondHeroCustom = null;
+
+      if (hasSecond && secondMode === 'preset') {
+        secondHeroPresetId = secondHeroPresetIdInput.value;
+      }
+      if (hasSecond && secondMode === 'custom') {
+        const type = document.getElementById('second_custom_type').value;
+        secondHeroCustom = {
+          type,
+          type_other_text: type === 'other' ? (document.getElementById('second_custom_type_other_text').value.trim() || null) : null,
+          role: document.getElementById('second_custom_role').value,
+          traits: [
+            document.getElementById('second_trait_1').value.trim(),
+            document.getElementById('second_trait_2').value.trim(),
+            document.getElementById('second_trait_3').value.trim()
+          ],
+          visual_markers: [
+            document.getElementById('second_marker_1').value.trim(),
+            document.getElementById('second_marker_2').value.trim(),
+            document.getElementById('second_marker_3').value.trim()
+          ].filter(Boolean).slice(0, 3),
+          unique_prop: document.getElementById('second_unique_prop').value.trim() || null
+        };
+      }
+
+      const settingMode = settingModeInput.value;
+      let settingPresetId = null;
+      let settingCustom = null;
+
+      if (settingMode === 'preset') {
+        settingPresetId = settingPresetIdInput.value;
+      } else {
+        const placeType = document.getElementById('setting_custom_type').value;
+        settingCustom = {
+          type: placeType,
+          type_other_text: placeType === 'other' ? (document.getElementById('setting_custom_type_other_text').value.trim() || null) : null,
+          time_of_day: document.getElementById('setting_custom_time').value,
+          season: document.getElementById('setting_custom_season').value,
+          details: [
+            document.getElementById('setting_detail_1').value.trim(),
+            document.getElementById('setting_detail_2').value.trim(),
+            document.getElementById('setting_detail_3').value.trim()
+          ],
+          realism: document.getElementById('setting_custom_realism').value
+        };
+      }
+
       const payload = {
         type: 'storybook_form',
+        session_id: sessionId,
         lang: currentLang,
         form_data: {
-          child_name: form.child_name.value.trim(),
-          second_character_name: form.second_character_name.value.trim() || null,
-          educational_plot: form.educational_plot.value, 
-          narrative_style: form.narrative_style.value,
-          setting: form.setting.value.trim() || null,
-          language: form.language.value,
-          age_group: form.age_group.value,
+          main_hero_name: document.getElementById('main_hero_name').value.trim(),
+          main_hero_appearance_mode: mainMode,
+          main_hero_appearance: mainHeroAppearance,
+
+          second_hero_name: secondName,
+          second_hero_mode: secondMode,
+          second_hero_preset_id: secondHeroPresetId,
+          second_hero_custom: secondHeroCustom,
+
+          setting_mode: settingMode,
+          setting_preset_id: settingPresetId,
+          setting_custom: settingCustom,
+
+          age_group: document.getElementById('age_group').value,
+          narrative_style: document.getElementById('narrative_style').value,
+          moral_theme: document.getElementById('moral_theme').value,
+          illustration_style_id: document.getElementById('illustration_style_id').value,
+          language: document.getElementById('language').value,
+
           ui_language: currentLang,
-          main_character_photo_name: form.main_character_photo.files[0]?.name || null,
-          second_character_photo_name: form.second_character_photo.files[0]?.name || null
+          post_submit_photo_requests: buildPostSubmitPhotoRequests()
         },
         telegram: {
-          initData: tg.initData, // строка для проверки подписи 
+          initData: tg.initData,
           user: tg.initDataUnsafe?.user || null
         }
       };
+
       try {
         await fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
-        
+
         tg.close();
       } catch (err) {
         console.error(err);
